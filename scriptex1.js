@@ -1,15 +1,15 @@
 //Referências
-var tituloLivro = document.querySelector('#assunto h2');
-var inputLivro = document.querySelector('input[name=assunto]');
-var botaoAssunto = document.querySelector('#assunto button');
-var listaLivro = document.querySelector('#livros li');
-var inputLivro = document.querySelector('#literatura input');
-var botaoLivro = document.querySelector('#literatura button');
+const tituloLivro = document.querySelector('#assunto h2');
+const inputLivro = document.querySelector('input[name=assunto]');
+const botaoAssunto = document.querySelector('#assunto button');
+const listaLivro = document.querySelector('#livros li');
+const inputLivro = document.querySelector('#literatura input');
+const botaoLivro = document.querySelector('#literatura button');
 
 //Variáveis que vão armazenar os dados
-var assunto = localStorage.getItem('assunto') || '';
+const assunto = localStorage.getItem('assunto') || '';
 tituloLivro.innerText = assunto;
-var livros = JSON.parse(localStorage.getItem('literatura')) || '';
+const livros = JSON.parse(localStorage.getItem('literatura')) || '';
 
 //função para exibir os livros na lista
 function montarListaLivros(){
@@ -18,10 +18,10 @@ function montarListaLivros(){
 
     livros.forEach(function(livro, posicao){
 
-        var li = document.createElement('li');
+        const li = document.createElement('li');
         li.appendChild(document.createTextNode(livro));
 
-        var linkExcluir = document.createElement('a');
+        const linkExcluir = document.createElement('a');
         linkExcluir.setAttribute('href', '#');
         linkExcluir.appendChild(document.createTextNode('Remover'));
 
@@ -66,7 +66,7 @@ botaoAssunto.addEventListener('click', function(){
 
 //Evento no botão de livro
 botaoLivros.addEventListener('click', function(){
-    var livros = inputLivro.value;
+    const livros = inputLivro.value;
     livros.push(livro);
     inputLivro.value = '';
     montarListaLivros();
